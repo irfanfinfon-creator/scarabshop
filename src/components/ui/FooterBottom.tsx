@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react';
-
 export function FooterBottom() {
   const footerLinks = [
     { label: 'About', href: '#' },
@@ -16,9 +14,7 @@ export function FooterBottom() {
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
         {/* Copyright */}
         <p className="text-sm text-gray-400 text-center sm:text-left flex items-center gap-2">
-          <span>© 2025 Skibidishop™.</span>
-          <span className="hidden sm:inline">Made with</span>
-          <Heart className="w-4 h-4 text-pink-500 fill-pink-500 animate-pulse" />
+          <span>© 2025 Scarabshop™.</span>
           <span className="hidden sm:inline">All Rights Reserved.</span>
         </p>
 

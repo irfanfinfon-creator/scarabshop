@@ -69,7 +69,7 @@ export function Header({
             onClick={onHomeClick}
             className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            Skibidishop
+            Scarabshop
           </button>
 
           <form onSubmit={handleSearch} className="flex-1 max-w-xl">
