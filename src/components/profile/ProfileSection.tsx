@@ -60,7 +60,7 @@ export function ProfileSection({ profile, onUpdate }: ProfileSectionProps) {
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
 
@@ -72,7 +72,7 @@ export function ProfileSection({ profile, onUpdate }: ProfileSectionProps) {
               type="text"
               value={formData.full_name}
               onChange={(e) => handleInputChange('full_name', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
 
@@ -84,14 +84,14 @@ export function ProfileSection({ profile, onUpdate }: ProfileSectionProps) {
               type="tel"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
 
           <div className="flex gap-3">
             <button
               onClick={handleSave}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Save Changes
             </button>
@@ -116,7 +116,7 @@ export function ProfileSection({ profile, onUpdate }: ProfileSectionProps) {
         </h3>
         <button
           onClick={handleEdit}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
         >
           Edit Profile
         </button>

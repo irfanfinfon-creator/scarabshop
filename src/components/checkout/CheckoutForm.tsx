@@ -74,22 +74,22 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
   // Require authentication
   if (!user) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 border border-gray-100">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-gray-900">Checkout</h2>
+            <h2 className="text-xl font-heading font-bold text-primary">Checkout</h2>
             <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
           <div className="text-center py-8">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <X className="w-8 h-8 text-blue-600" />
+            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <X className="w-8 h-8 text-accent" />
             </div>
-            <p className="text-gray-600 mb-4">Please sign in to continue with checkout.</p>
+            <p className="text-secondary mb-4 font-body">Please sign in to continue with checkout.</p>
             <button
               onClick={handleClose}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors font-body"
             >
               Close
             </button>
@@ -145,13 +145,13 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col border border-gray-100">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 p-6 flex items-center justify-between z-10">
           <div>
-            <h2 className="text-xl font-bold text-gray-900">Checkout</h2>
-            <p className="text-sm text-gray-600">{getStepTitle()}</p>
+            <h2 className="text-xl font-heading font-bold text-primary">Checkout</h2>
+            <p className="text-sm text-secondary font-body">{getStepTitle()}</p>
           </div>
           <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
             <X className="w-5 h-5" />
@@ -159,22 +159,22 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
         </div>
 
         {/* Step Indicator */}
-        <div className="px-6 py-4 bg-gray-50 border-b border-gray-200">
+        <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
           <div className="flex items-center justify-center max-w-md mx-auto">
             <div className="flex items-center flex-1">
               {[1, 2, 3].map((step) => (
                 <div key={step} className="flex items-center">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${currentStep >= step
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 text-gray-600'
+                      ? 'bg-accent text-white'
+                      : 'bg-gray-200 text-secondary'
                       }`}
                   >
                     {step}
                   </div>
                   {step < 3 && (
                     <div
-                      className={`w-16 h-1 transition-colors ${currentStep > step ? 'bg-blue-600' : 'bg-gray-200'
+                      className={`w-16 h-1 transition-colors ${currentStep > step ? 'bg-accent' : 'bg-gray-200'
                         }`}
                     />
                   )}

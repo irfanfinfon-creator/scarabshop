@@ -55,16 +55,12 @@ export function ProductGrid({
     return (
       <div className="flex flex-col justify-center items-center py-20">
         <div className="relative">
-          {/* Empty state illustration */}
-          <div className="w-24 h-24 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-full flex items-center justify-center mb-6">
+          <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
           </div>
-          {/* Decorative circles */}
-          <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full animate-ping" />
-          <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-pink-200 rounded-full animate-ping" style={{ animationDelay: '0.3s' }} />
         </div>
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">No Products Found</h3>
-        <p className="text-gray-600 text-center max-w-md">
+        <h3 className="text-2xl font-heading font-bold text-primary mb-2">No Products Found</h3>
+        <p className="text-secondary text-center max-w-md font-body">
           {searchQuery
             ? `We couldn't find any products matching "${searchQuery}". Try a different search term.`
             : "No products available at the moment. Check back soon for new arrivals!"
@@ -74,7 +70,7 @@ export function ProductGrid({
         {searchQuery && (
           <button
             onClick={() => window.location.reload()}
-            className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+            className="mt-6 px-6 py-3 bg-accent text-white rounded-xl font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 font-body"
           >
             Clear Search
           </button>
@@ -89,9 +85,9 @@ export function ProductGrid({
     <div className="relative">
       {/* Product count badge */}
       <div className="mb-6 flex items-center justify-between">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-purple-200 px-4 py-2 rounded-full">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-sm font-semibold text-gray-700">
+        <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full">
+          <div className="w-2 h-2 bg-accent rounded-full" />
+          <span className="text-sm font-semibold text-primary font-body">
             {displayProducts.length} {displayProducts.length === 1 ? 'Product' : 'Products'} Available
           </span>
         </div>

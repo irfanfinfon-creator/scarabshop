@@ -19,31 +19,28 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
     const categories = CATEGORIES;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+        <div className="min-h-screen bg-white">
             {/* Hero Header */}
-            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-16 overflow-hidden">
-                {/* Background pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20" />
-
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="bg-primary py-16">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                        <h1 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
                             Shop All Products
                         </h1>
-                        <p className="text-xl text-white/90 mb-8">
+                        <p className="text-xl text-white/80 mb-8 font-body">
                             Discover amazing deals on thousands of products
                         </p>
 
                         {/* Search Bar */}
                         <div className="relative max-w-2xl mx-auto">
-                            <div className="flex items-center bg-white rounded-xl shadow-2xl overflow-hidden">
+                            <div className="flex items-center bg-white rounded-xl shadow-xl overflow-hidden">
                                 <Search className="w-5 h-5 text-gray-400 ml-4" />
                                 <input
                                     type="text"
                                     placeholder="Search for products..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="flex-1 px-4 py-4 text-gray-900 placeholder-gray-400 focus:outline-none"
+                                    className="flex-1 px-4 py-4 text-primary placeholder-gray-400 focus:outline-none font-body"
                                 />
                                 {searchQuery && (
                                     <button
@@ -53,7 +50,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         <X className="w-5 h-5 text-gray-400" />
                                     </button>
                                 )}
-                                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 font-semibold hover:shadow-lg transition-all">
+                                <button className="bg-accent text-white px-6 py-4 font-semibold hover:bg-accent-dark transition-all font-body">
                                     Search
                                 </button>
                             </div>
@@ -67,22 +64,22 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Sidebar Filters - Desktop */}
                     <aside className="hidden lg:block w-64 flex-shrink-0">
-                        <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+                        <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24 border border-gray-100">
                             <div className="flex items-center justify-between mb-6">
-                                <h3 className="text-lg font-bold text-gray-900">Filters</h3>
-                                <SlidersHorizontal className="w-5 h-5 text-gray-400" />
+                                <h3 className="text-lg font-heading font-bold text-primary">Filters</h3>
+                                <SlidersHorizontal className="w-5 h-5 text-secondary" />
                             </div>
 
                             {/* Price Range */}
                             <div className="mt-8 space-y-4 mb-8">
-                                <h4 className="text-sm font-semibold text-gray-700">Price Range (RM)</h4>
+                                <h4 className="text-sm font-semibold text-primary font-body">Price Range (RM)</h4>
                                 <div className="flex items-center gap-2">
                                     <input
                                         type="number"
                                         placeholder="Min"
                                         value={priceRange.min}
                                         onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
                                     />
                                     <span className="text-gray-400">-</span>
                                     <input
@@ -90,21 +87,21 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         placeholder="Max"
                                         value={priceRange.max}
                                         onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
                                     />
                                 </div>
                             </div>
 
                             {/* Categories */}
                             <div className="space-y-2">
-                                <h4 className="text-sm font-semibold text-gray-700 mb-3">Categories</h4>
+                                <h4 className="text-sm font-semibold text-primary mb-3 font-body">Categories</h4>
                                 {categories.map((category) => (
                                     <button
                                         key={category.id}
                                         onClick={() => setSelectedCategory(category.id)}
-                                        className={`w-full text-left px-4 py-2 rounded-lg transition-all ${selectedCategory === category.id
-                                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold'
-                                            : 'text-gray-700 hover:bg-gray-100'
+                                        className={`w-full text-left px-4 py-2 rounded-lg transition-all font-body ${selectedCategory === category.id
+                                            ? 'bg-accent text-white font-semibold'
+                                            : 'text-secondary hover:bg-gray-100'
                                             }`}
                                     >
                                         {category.name}
@@ -121,7 +118,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         setPriceRange({ min: '', max: '' });
                                         setSortOption('newest');
                                     }}
-                                    className="w-full mt-6 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-purple-600 hover:text-purple-600 transition-all font-semibold"
+                                    className="w-full mt-6 px-4 py-2 border-2 border-gray-300 text-secondary rounded-lg hover:border-accent hover:text-accent transition-all font-semibold font-body"
                                 >
                                     Clear All Filters
                                 </button>
@@ -142,9 +139,9 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                         {/* Mobile Filters Modal */}
                         {showFilters && (
                             <div className="fixed inset-0 bg-black/50 z-50 flex items-end lg:hidden">
-                                <div className="bg-white w-full rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto animate-slideUp">
+                                <div className="bg-white w-full rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto">
                                     <div className="flex items-center justify-between mb-6">
-                                        <h3 className="text-lg font-bold">Filters</h3>
+                                        <h3 className="text-lg font-heading font-bold">Filters</h3>
                                         <button
                                             onClick={() => setShowFilters(false)}
                                             className="p-2 hover:bg-gray-100 rounded-full"
@@ -155,16 +152,16 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
 
                                     <div className="space-y-6">
                                         <div>
-                                            <h4 className="text-sm font-semibold text-gray-700 mb-3">Categories</h4>
+                                            <h4 className="text-sm font-semibold text-primary mb-3 font-body">Categories</h4>
                                             {categories.map((category) => (
                                                 <button
                                                     key={category.id}
                                                     onClick={() => {
                                                         setSelectedCategory(category.id);
                                                     }}
-                                                    className={`w-full text-left px-4 py-2 rounded-lg transition-all mb-2 ${selectedCategory === category.id
-                                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold'
-                                                        : 'text-gray-700 hover:bg-gray-100'
+                                                    className={`w-full text-left px-4 py-2 rounded-lg transition-all mb-2 font-body ${selectedCategory === category.id
+                                                        ? 'bg-accent text-white font-semibold'
+                                                        : 'text-secondary hover:bg-gray-100'
                                                         }`}
                                                 >
                                                     {category.name}
@@ -174,14 +171,14 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
 
                                         {/* Mobile Price Range */}
                                         <div>
-                                            <h4 className="text-sm font-semibold text-gray-700 mb-3">Price Range (RM)</h4>
+                                            <h4 className="text-sm font-semibold text-primary mb-3 font-body">Price Range (RM)</h4>
                                             <div className="flex items-center gap-2">
                                                 <input
                                                     type="number"
                                                     placeholder="Min"
                                                     value={priceRange.min}
                                                     onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
                                                 />
                                                 <span className="text-gray-400">-</span>
                                                 <input
@@ -189,14 +186,14 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                                     placeholder="Max"
                                                     value={priceRange.max}
                                                     onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
                                                 />
                                             </div>
                                         </div>
 
                                         <button
                                             onClick={() => setShowFilters(false)}
-                                            className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700"
+                                            className="w-full bg-accent text-white py-3 rounded-xl font-semibold hover:bg-accent-dark font-body"
                                         >
                                             Apply Filters
                                         </button>
@@ -213,7 +210,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                             <select
                                 value={sortOption}
                                 onChange={(e) => setSortOption(e.target.value as SortOption)}
-                                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-white font-body"
                             >
                                 <option value="newest">Newest Arrivals</option>
                                 <option value="oldest">Oldest First</option>

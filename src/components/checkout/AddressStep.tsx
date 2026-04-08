@@ -89,7 +89,7 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold">Shipping Address</h3>
+      <h3 className="text-lg font-heading font-semibold text-primary">Shipping Address</h3>
 
       {/* Existing Addresses */}
       {addresses.length > 0 && !showNewAddressForm && (
@@ -103,22 +103,22 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
               }}
               className={`p-4 border rounded-lg cursor-pointer transition-colors ${
                 selectedAddressId === address.id
-                  ? 'border-blue-600 bg-blue-50'
+                  ? 'border-accent bg-accent/5'
                   : 'border-gray-200 hover:border-gray-300'
               }`}
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900">{address.address_line1}</p>
+                  <p className="font-medium text-primary">{address.address_line1}</p>
                   {address.address_line2 && (
-                    <p className="text-gray-600 text-sm">{address.address_line2}</p>
+                    <p className="text-secondary text-sm">{address.address_line2}</p>
                   )}
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-secondary text-sm">
                     {address.city}, {address.state} {address.postal_code}
                   </p>
-                  <p className="text-gray-600 text-sm">{address.country}</p>
+                  <p className="text-secondary text-sm">{address.country}</p>
                   {address.is_default && (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mt-2">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent mt-2 font-body">
                       Default
                     </span>
                   )}
@@ -131,7 +131,7 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
                       setSelectedAddressId(address.id);
                       onAddressSelect(address.id);
                     }}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                    className="h-4 w-4 text-accent focus:ring-accent border-gray-300"
                   />
                 </div>
               </div>
@@ -144,7 +144,7 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
       {!showNewAddressForm && (
         <button
           onClick={() => setShowNewAddressForm(true)}
-          className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-gray-400 hover:text-gray-700 transition-colors"
+          className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-secondary hover:border-accent hover:text-accent transition-colors font-body"
         >
           + Add New Address
         </button>
@@ -153,56 +153,56 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
       {/* New Address Form */}
       {showNewAddressForm && (
         <div className="bg-gray-50 p-6 rounded-lg">
-          <h4 className="font-medium mb-4">Add New Address</h4>
+          <h4 className="font-heading font-medium mb-4 text-primary">Add New Address</h4>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-primary mb-1 font-body">
                 Address Line 1 *
               </label>
               <input
                 type="text"
                 value={newAddress.address_line1}
                 onChange={(e) => handleInputChange('address_line1', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-primary mb-1 font-body">
                 Address Line 2
               </label>
               <input
                 type="text"
                 value={newAddress.address_line2}
                 onChange={(e) => handleInputChange('address_line2', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-primary mb-1 font-body">
                   City *
                 </label>
                 <input
                   type="text"
                   value={newAddress.city}
                   onChange={(e) => handleInputChange('city', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-primary mb-1 font-body">
                   State *
                 </label>
                 <input
                   type="text"
                   value={newAddress.state}
                   onChange={(e) => handleInputChange('state', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
                   required
                 />
               </div>
@@ -210,27 +210,27 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-primary mb-1 font-body">
                   Postal Code *
                 </label>
                 <input
                   type="text"
                   value={newAddress.postal_code}
                   onChange={(e) => handleInputChange('postal_code', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-primary mb-1 font-body">
                   Country *
                 </label>
                 <input
                   type="text"
                   value={newAddress.country}
                   onChange={(e) => handleInputChange('country', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
                   required
                 />
               </div>
@@ -242,9 +242,9 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
                 id="is_default"
                 checked={newAddress.is_default}
                 onChange={(e) => handleInputChange('is_default', e.target.checked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
               />
-              <label htmlFor="is_default" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="is_default" className="ml-2 block text-sm text-primary font-body">
                 Set as default address
               </label>
             </div>
@@ -253,13 +253,13 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
               <button
                 onClick={handleCreateAddress}
                 disabled={loading}
-                className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed font-body"
               >
                 {loading ? 'Saving...' : 'Add Address'}
               </button>
               <button
                 onClick={() => setShowNewAddressForm(false)}
-                className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300"
+                className="flex-1 bg-gray-200 text-primary py-2 px-4 rounded-lg hover:bg-gray-300 font-body"
               >
                 Cancel
               </button>
@@ -273,7 +273,7 @@ export function AddressStep({ onAddressSelect, onContinue }: AddressStepProps) {
         <button
           onClick={handleContinue}
           disabled={!selectedAddressId}
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-accent text-white py-3 px-4 rounded-lg hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed font-body"
         >
           Continue to Payment
         </button>

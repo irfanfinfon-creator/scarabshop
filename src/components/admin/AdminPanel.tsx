@@ -62,42 +62,42 @@ export function AdminPanel() {
   if (!isAdmin) {
     return (
       <div className="max-w-4xl mx-auto p-8 text-center">
-        <p className="text-gray-500 text-lg">Access denied. Admin privileges required.</p>
+        <p className="text-secondary text-lg font-body">Access denied. Admin privileges required.</p>
       </div>
     );
   }
 
   return (
     <div className="max-w-7xl mx-auto p-4 md:p-8">
-      <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
+      <h1 className="text-3xl font-heading font-bold mb-8 text-primary">Admin Panel</h1>
 
-      <div className="flex gap-2 mb-6 border-b">
+      <div className="flex gap-2 mb-6 border-b border-gray-100">
         <button
           onClick={() => setActiveTab('overview')}
-          className={`px-4 py-2 font-medium ${
+          className={`px-4 py-2 font-medium font-body ${
             activeTab === 'overview'
-              ? 'border-b-2 border-blue-600 text-blue-600'
-              : 'text-gray-600 hover:text-gray-900'
+              ? 'border-b-2 border-accent text-accent'
+              : 'text-secondary hover:text-primary'
           }`}
         >
           Overview
         </button>
         <button
           onClick={() => setActiveTab('products')}
-          className={`px-4 py-2 font-medium ${
+          className={`px-4 py-2 font-medium font-body ${
             activeTab === 'products'
-              ? 'border-b-2 border-blue-600 text-blue-600'
-              : 'text-gray-600 hover:text-gray-900'
+              ? 'border-b-2 border-accent text-accent'
+              : 'text-secondary hover:text-primary'
           }`}
         >
           Products
         </button>
         <button
           onClick={() => setActiveTab('orders')}
-          className={`px-4 py-2 font-medium ${
+          className={`px-4 py-2 font-medium font-body ${
             activeTab === 'orders'
-              ? 'border-b-2 border-blue-600 text-blue-600'
-              : 'text-gray-600 hover:text-gray-900'
+              ? 'border-b-2 border-accent text-accent'
+              : 'text-secondary hover:text-primary'
           }`}
         >
           Orders
@@ -107,36 +107,36 @@ export function AdminPanel() {
       {activeTab === 'overview' && (
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600">Total Orders</span>
-                <Package className="w-5 h-5 text-blue-600" />
+                <span className="text-secondary font-body">Total Orders</span>
+                <Package className="w-5 h-5 text-accent" />
               </div>
-              <p className="text-3xl font-bold">{stats.totalOrders}</p>
+              <p className="text-3xl font-heading font-bold text-primary">{stats.totalOrders}</p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600">Revenue</span>
-                <TrendingUp className="w-5 h-5 text-green-600" />
+                <span className="text-secondary font-body">Revenue</span>
+                <TrendingUp className="w-5 h-5 text-accent" />
               </div>
-              <p className="text-3xl font-bold">${stats.totalRevenue.toFixed(2)}</p>
+              <p className="text-3xl font-heading font-bold text-primary">RM{stats.totalRevenue.toFixed(2)}</p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600">Products</span>
-                <ShoppingBag className="w-5 h-5 text-purple-600" />
+                <span className="text-secondary font-body">Products</span>
+                <ShoppingBag className="w-5 h-5 text-accent" />
               </div>
-              <p className="text-3xl font-bold">{stats.totalProducts}</p>
+              <p className="text-3xl font-heading font-bold text-primary">{stats.totalProducts}</p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600">Customers</span>
-                <Users className="w-5 h-5 text-orange-600" />
+                <span className="text-secondary font-body">Customers</span>
+                <Users className="w-5 h-5 text-accent" />
               </div>
-              <p className="text-3xl font-bold">{stats.totalCustomers}</p>
+              <p className="text-3xl font-heading font-bold text-primary">{stats.totalCustomers}</p>
             </div>
           </div>
         </div>

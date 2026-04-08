@@ -62,12 +62,12 @@ export function Header({
   };
 
   return (
-    <header className="sticky top-0 left-0 w-full z-40 bg-white bg-opacity-75 shadow-sm backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+    <header className="sticky top-0 left-0 w-full z-40 bg-white shadow-sm border-b border-gray-100">
+      <div className="max-w-[1500px] mx-auto px-4 py-4">
         <div className="flex items-center justify-between gap-4">
           <button
             onClick={onHomeClick}
-            className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+            className="text-2xl font-heading font-bold text-primary hover:text-accent transition-colors"
           >
             Scarabshop
           </button>
@@ -80,7 +80,7 @@ export function Header({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="What you buying today?"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent font-body"
               />
             </div>
           </form>
@@ -89,7 +89,7 @@ export function Header({
           <nav className="hidden md:flex items-center gap-6">
             <button
               onClick={onShopClick}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-secondary hover:text-accent font-medium transition-colors font-body"
             >
               Shop
             </button>
@@ -103,7 +103,7 @@ export function Header({
             >
               <ShoppingCart className="w-6 h-6" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -138,7 +138,7 @@ export function Header({
             ) : (
               <button
                 onClick={onAuthClick}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark transition-colors font-body"
               >
                 Sign In
               </button>
