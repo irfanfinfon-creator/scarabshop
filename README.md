@@ -1,2 +1,2 @@
 # scarabshop
-e-commerce website pet project
+e-commerce web template
