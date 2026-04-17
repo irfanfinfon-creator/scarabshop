@@ -1,10 +1,9 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, Session, AuthError } from '@supabase/supabase-js';
+import { User, AuthError } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
 
 interface AuthContextType {
   user: User | null;
-  session: Session | null;
   loading: boolean;
   signUp: (email: string, password: string, fullName: string) => Promise<{ error: AuthError | null }>;
   signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
@@ -15,12 +14,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
     });
@@ -28,7 +25,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
       setUser(session?.user ?? null);
     });
 
@@ -47,7 +43,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     if (error) {
-      console.error('Signup auth error:', error);
       return { error };
     }
 
@@ -67,8 +62,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         });
 
         if (profileError) {
-          console.error('Profile creation error:', profileError);
-          // Don't block sign up success if profile fails, but log it
+          // Silently fail - don't block sign up success
         }
       } else {
         // Update existing profile (created by trigger) with full name
@@ -78,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .eq('id', data.user.id);
 
         if (updateError) {
-          console.error('Profile update error:', updateError);
+          // Silently fail
         }
       }
     }
@@ -96,7 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, loading, signUp, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

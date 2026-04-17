@@ -87,8 +87,7 @@ export function useProfile() {
         });
 
         if (authError) {
-          // If auth update fails, warn user but don't rollback profile (or handle as needed)
-          console.error('Auth email update failed:', authError);
+          // If auth update fails, warn user but don't rollback profile
           addToast({
             message: 'Profile updated, but email change requires verification. Please check your inbox.',
             type: 'warning',
@@ -169,7 +168,6 @@ export function useProfile() {
       await fetchAddresses();
       return true;
     } catch (error) {
-      console.error('Update address error:', error);
       addToast({
         message: 'Failed to update address',
         type: 'error',

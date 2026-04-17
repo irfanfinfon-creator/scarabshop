@@ -45,7 +45,7 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
       setSelectedAddressId('');
       setSelectedPaymentMethod(PAYMENT_METHODS.CARD);
     } catch (error) {
-      console.error('Failed to place order:', error);
+      // Handle error silently
     }
   };
 
@@ -77,19 +77,19 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
       <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 border border-gray-100">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-heading font-bold text-primary">Checkout</h2>
+            <h2 className="text-xl font-heading font-bold text-gray-950">Checkout</h2>
             <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
           <div className="text-center py-8">
-            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-red-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <X className="w-8 h-8 text-accent" />
             </div>
-            <p className="text-secondary mb-4 font-body">Please sign in to continue with checkout.</p>
+            <p className="text-gray-500 mb-4 font-body">Please sign in to continue with checkout.</p>
             <button
               onClick={handleClose}
-              className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors font-body"
+              className="bg-red-400 text-white px-6 py-3 rounded-lg hover:bg-red-400-dark transition-colors font-body"
             >
               Close
             </button>
@@ -150,8 +150,8 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-gray-100 p-6 flex items-center justify-between z-10">
           <div>
-            <h2 className="text-xl font-heading font-bold text-primary">Checkout</h2>
-            <p className="text-sm text-secondary font-body">{getStepTitle()}</p>
+            <h2 className="text-xl font-heading font-bold text-gray-950">Checkout</h2>
+            <p className="text-sm text-gray-500 font-body">{getStepTitle()}</p>
           </div>
           <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
             <X className="w-5 h-5" />
@@ -166,15 +166,15 @@ export function CheckoutForm({ isOpen, onClose, onSuccess }: CheckoutFormProps) 
                 <div key={step} className="flex items-center">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${currentStep >= step
-                      ? 'bg-accent text-white'
-                      : 'bg-gray-200 text-secondary'
+                      ? 'bg-red-400 text-white'
+                      : 'bg-gray-200 text-gray-500'
                       }`}
                   >
                     {step}
                   </div>
                   {step < 3 && (
                     <div
-                      className={`w-16 h-1 transition-colors ${currentStep > step ? 'bg-accent' : 'bg-gray-200'
+                      className={`w-16 h-1 transition-colors ${currentStep > step ? 'bg-red-400' : 'bg-gray-200'
                         }`}
                     />
                   )}

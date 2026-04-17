@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from './useToast';
-import { useCart } from './useCart';
+import { useCartContext } from '../contexts/CartContext';
 import { Address, CartItem } from '../types';
 import { PAYMENT_METHODS } from '../constants';
 
@@ -20,7 +20,7 @@ export function useCheckout() {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
   const { addToast } = useToast();
-  const { cartItems, clearCart } = useCart();
+  const { cartItems, clearCart } = useCartContext();
 
   // Create new address
   const createAddress = useCallback(async (formData: AddressFormData) => {

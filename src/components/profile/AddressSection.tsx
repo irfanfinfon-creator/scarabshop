@@ -107,7 +107,7 @@ export function AddressSection({
               type="text"
               value={formData.address_line1}
               onChange={(e) => handleInputChange('address_line1', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
               required
             />
           </div>
@@ -120,7 +120,7 @@ export function AddressSection({
               type="text"
               value={formData.address_line2}
               onChange={(e) => handleInputChange('address_line2', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
             />
           </div>
 
@@ -133,7 +133,7 @@ export function AddressSection({
                 type="text"
                 value={formData.city}
                 onChange={(e) => handleInputChange('city', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 required
               />
             </div>
@@ -146,7 +146,7 @@ export function AddressSection({
                 type="text"
                 value={formData.state}
                 onChange={(e) => handleInputChange('state', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 required
               />
             </div>
@@ -161,7 +161,7 @@ export function AddressSection({
                 type="text"
                 value={formData.postal_code}
                 onChange={(e) => handleInputChange('postal_code', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 required
               />
             </div>
@@ -174,7 +174,7 @@ export function AddressSection({
                 type="text"
                 value={formData.country}
                 onChange={(e) => handleInputChange('country', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 required
               />
             </div>
@@ -196,7 +196,7 @@ export function AddressSection({
           <div className="flex gap-3">
             <button
               onClick={handleSave}
-              className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-500 transition-colors"
             >
               {editingAddress ? 'Update Address' : 'Add Address'}
             </button>
@@ -221,7 +221,7 @@ export function AddressSection({
         </h3>
         <button
           onClick={handleAddNew}
-          className="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition-colors"
         >
           <Plus className="w-4 h-4" />
           Add Address
@@ -243,7 +243,7 @@ export function AddressSection({
                   <div className="flex items-center gap-2 mb-2">
                     <p className="font-medium text-gray-900">{address.address_line1}</p>
                     {address.is_default && (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
                         Default
                       </span>
                     )}
@@ -263,7 +263,7 @@ export function AddressSection({
                 <div className="flex items-center gap-2 ml-4">
                   <button
                     onClick={() => handleEdit(address)}
-                    className="p-2 text-blue-600 hover:bg-accent/10 rounded-lg transition-colors"
+                    className="p-2 text-gray-500 hover:bg-red-400/10 rounded-lg transition-colors"
                     title="Edit address"
                   >
                     <Edit className="w-4 h-4" />

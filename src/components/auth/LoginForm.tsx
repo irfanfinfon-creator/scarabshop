@@ -59,12 +59,12 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
           <Mail className="w-8 h-8 text-accent" />
         </div>
 
-        <h3 className="text-lg font-heading font-semibold text-primary">Check your email!</h3>
-        <p className="text-secondary font-body">
+        <h3 className="text-lg font-heading font-semibold text-gray-950">Check your email!</h3>
+        <p className="text-gray-500 font-body">
           We've sent a magic link to <strong>{email}</strong>
         </p>
 
-        <p className="text-sm text-secondary font-body">
+        <p className="text-sm text-gray-500 font-body">
           Click the link in the email to sign in. The link will expire in 1 hour.
         </p>
 
@@ -86,7 +86,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
       className="space-y-4"
     >
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1 text-primary font-body">
+        <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-950 font-body">
           Email
         </label>
         <input
@@ -96,13 +96,13 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
         />
       </div>
 
       {!useMagicLink && (
         <div>
-          <label htmlFor="password" className="block text-sm font-medium mb-1 text-primary font-body">
+          <label htmlFor="password" className="block text-sm font-medium mb-1 text-gray-950 font-body">
             Password
           </label>
           <input
@@ -112,7 +112,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
           />
         </div>
       )}
@@ -126,7 +126,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark disabled:opacity-50 font-semibold transition-colors font-body"
+        className="w-full bg-red-400 text-white py-2 px-4 rounded-lg hover:bg-red-500 disabled:opacity-50 font-semibold transition-colors font-body"
       >
         {loading
           ? useMagicLink
@@ -142,7 +142,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
           <div className="w-full border-t border-gray-200"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-secondary font-body">or</span>
+          <span className="px-2 bg-white text-gray-500 font-body">or</span>
         </div>
       </div>
 
@@ -158,7 +158,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
         {useMagicLink ? 'Use Password Instead' : 'Login with Magic Link'}
       </button>
 
-      <p className="text-center text-sm text-secondary font-body">
+      <p className="text-center text-sm text-gray-500 font-body">
         Don't have an account?{' '}
         <button
           type="button"
@@ -170,7 +170,7 @@ export function LoginForm({ onToggleMode, onSuccess }: LoginFormProps) {
       </p>
 
       {useMagicLink && (
-        <p className="text-xs text-secondary text-center font-body">
+        <p className="text-xs text-gray-500 text-center font-body">
           No password needed! We'll send you a secure link to sign in.
         </p>
       )}

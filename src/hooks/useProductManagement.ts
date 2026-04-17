@@ -115,7 +115,6 @@ export function useProductManagement() {
       await fetchProducts();
       return true;
     } catch (error) {
-      console.error('Update product error:', error);
       addToast({
         message: 'Failed to update product',
         type: 'error',

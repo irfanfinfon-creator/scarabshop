@@ -74,7 +74,7 @@ export function ToastContainer() {
             ${toast.type === 'success' ? 'bg-green-600' : ''}
             ${toast.type === 'error' ? 'bg-red-600' : ''}
             ${toast.type === 'warning' ? 'bg-yellow-600' : ''}
-            ${toast.type === 'info' ? 'bg-accent' : ''}
+            ${toast.type === 'info' ? 'bg-red-400' : ''}
           `}
         >
           <span className="text-sm font-medium">{toast.message}</span>

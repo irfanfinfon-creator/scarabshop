@@ -1,6 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1f2937; /* gray-800 */
+  --color-secondary: #6b7280; /* gray-500 */
+  --color-accent: #f87171; /* red-400 */
+  --color-accent-dark: #ef4444; /* red-500 */
+  --color-accent-light: #fca5a5; /* red-300 */
+  --color-background: #ffffff;
+  --color-background-alt: #f9fafb; /* gray-50 */
+  --color-scrollbar: #f3f4f6; /* gray-100 */
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+
 
 @keyframes fadeIn {
   from {
@@ -35,14 +49,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-scrollbar);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF6B6B;
+  background: var(--color-accent-light);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E85555;
+  background: var(--color-accent);
 }

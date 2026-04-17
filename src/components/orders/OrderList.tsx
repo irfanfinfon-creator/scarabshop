@@ -119,8 +119,8 @@ export function OrderList() {
           </div>
 
           {order.tracking_number && (
-            <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-              <p className="text-sm font-medium text-blue-900">Tracking: {order.tracking_number}</p>
+            <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+              <p className="text-sm font-medium text-gray-800">Tracking: {order.tracking_number}</p>
             </div>
           )}
 

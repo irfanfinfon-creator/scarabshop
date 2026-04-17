@@ -64,7 +64,6 @@ export function useProducts(options?: {
       if (error) throw error;
       setProducts(data as Product[]);
     } catch (error) {
-      console.error('Fetch products error:', error);
       addToast({
         message: 'Failed to load products',
         type: 'error',

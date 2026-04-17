@@ -21,7 +21,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Header */}
-            <div className="bg-primary py-16">
+            <div className="bg-gray-950 py-16">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <h1 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
@@ -40,7 +40,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                     placeholder="Search for products..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="flex-1 px-4 py-4 text-primary placeholder-gray-400 focus:outline-none font-body"
+                                    className="flex-1 px-4 py-4 text-gray-950 placeholder-gray-400 focus:outline-none font-body"
                                 />
                                 {searchQuery && (
                                     <button
@@ -50,7 +50,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         <X className="w-5 h-5 text-gray-400" />
                                     </button>
                                 )}
-                                <button className="bg-accent text-white px-6 py-4 font-semibold hover:bg-accent-dark transition-all font-body">
+                                <button className="bg-red-400 text-white px-6 py-4 font-semibold hover:bg-red-500 transition-all font-body">
                                     Search
                                 </button>
                             </div>
@@ -66,20 +66,20 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                     <aside className="hidden lg:block w-64 flex-shrink-0">
                         <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24 border border-gray-100">
                             <div className="flex items-center justify-between mb-6">
-                                <h3 className="text-lg font-heading font-bold text-primary">Filters</h3>
-                                <SlidersHorizontal className="w-5 h-5 text-secondary" />
+                                <h3 className="text-lg font-heading font-bold text-gray-950">Filters</h3>
+                                <SlidersHorizontal className="w-5 h-5 text-gray-500" />
                             </div>
 
                             {/* Price Range */}
                             <div className="mt-8 space-y-4 mb-8">
-                                <h4 className="text-sm font-semibold text-primary font-body">Price Range (RM)</h4>
+                                <h4 className="text-sm font-semibold text-gray-950 font-body">Price Range (RM)</h4>
                                 <div className="flex items-center gap-2">
                                     <input
                                         type="number"
                                         placeholder="Min"
                                         value={priceRange.min}
                                         onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
                                     />
                                     <span className="text-gray-400">-</span>
                                     <input
@@ -87,21 +87,21 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         placeholder="Max"
                                         value={priceRange.max}
                                         onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
                                     />
                                 </div>
                             </div>
 
                             {/* Categories */}
                             <div className="space-y-2">
-                                <h4 className="text-sm font-semibold text-primary mb-3 font-body">Categories</h4>
+                                <h4 className="text-sm font-semibold text-gray-950 mb-3 font-body">Categories</h4>
                                 {categories.map((category) => (
                                     <button
                                         key={category.id}
                                         onClick={() => setSelectedCategory(category.id)}
                                         className={`w-full text-left px-4 py-2 rounded-lg transition-all font-body ${selectedCategory === category.id
-                                            ? 'bg-accent text-white font-semibold'
-                                            : 'text-secondary hover:bg-gray-100'
+                                            ? 'bg-red-400 text-white font-semibold'
+                                            : 'text-gray-500 hover:bg-gray-100'
                                             }`}
                                     >
                                         {category.name}
@@ -118,7 +118,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                         setPriceRange({ min: '', max: '' });
                                         setSortOption('newest');
                                     }}
-                                    className="w-full mt-6 px-4 py-2 border-2 border-gray-300 text-secondary rounded-lg hover:border-accent hover:text-accent transition-all font-semibold font-body"
+                                    className="w-full mt-6 px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-lg hover:border-red-400 hover:text-red-400 transition-all font-semibold font-body"
                                 >
                                     Clear All Filters
                                 </button>
@@ -152,7 +152,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
 
                                     <div className="space-y-6">
                                         <div>
-                                            <h4 className="text-sm font-semibold text-primary mb-3 font-body">Categories</h4>
+                                            <h4 className="text-sm font-semibold text-gray-950 mb-3 font-body">Categories</h4>
                                             {categories.map((category) => (
                                                 <button
                                                     key={category.id}
@@ -160,8 +160,8 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                                         setSelectedCategory(category.id);
                                                     }}
                                                     className={`w-full text-left px-4 py-2 rounded-lg transition-all mb-2 font-body ${selectedCategory === category.id
-                                                        ? 'bg-accent text-white font-semibold'
-                                                        : 'text-secondary hover:bg-gray-100'
+                                                        ? 'bg-red-400 text-white font-semibold'
+                                                        : 'text-gray-500 hover:bg-gray-100'
                                                         }`}
                                                 >
                                                     {category.name}
@@ -171,14 +171,14 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
 
                                         {/* Mobile Price Range */}
                                         <div>
-                                            <h4 className="text-sm font-semibold text-primary mb-3 font-body">Price Range (RM)</h4>
+                                            <h4 className="text-sm font-semibold text-gray-950 mb-3 font-body">Price Range (RM)</h4>
                                             <div className="flex items-center gap-2">
                                                 <input
                                                     type="number"
                                                     placeholder="Min"
                                                     value={priceRange.min}
                                                     onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
                                                 />
                                                 <span className="text-gray-400">-</span>
                                                 <input
@@ -186,14 +186,14 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                                                     placeholder="Max"
                                                     value={priceRange.max}
                                                     onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none font-body"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none font-body"
                                                 />
                                             </div>
                                         </div>
 
                                         <button
                                             onClick={() => setShowFilters(false)}
-                                            className="w-full bg-accent text-white py-3 rounded-xl font-semibold hover:bg-accent-dark font-body"
+                                            className="w-full bg-red-400 text-white py-3 rounded-xl font-semibold hover:bg-red-500 font-body"
                                         >
                                             Apply Filters
                                         </button>
@@ -210,7 +210,7 @@ export function ShopPage({ onProductClick }: ShopPageProps) {
                             <select
                                 value={sortOption}
                                 onChange={(e) => setSortOption(e.target.value as SortOption)}
-                                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-white font-body"
+                                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-white font-body"
                             >
                                 <option value="newest">Newest Arrivals</option>
                                 <option value="oldest">Oldest First</option>

@@ -60,7 +60,7 @@ export function ProductTable({
               <>
                 <tr
                   key={product.id}
-                  className={isEditing ? 'bg-accent/10' : 'hover:bg-gray-50'}
+                  className={isEditing ? 'bg-red-400/10' : 'hover:bg-gray-50'}
                 >
                   {/* Product Info */}
                   <td className="px-6 py-4">
@@ -137,7 +137,7 @@ export function ProductTable({
                       <button
                         onClick={() => onEdit(product)}
                         disabled={isEditing}
-                        className="p-2 text-accent hover:bg-accent/10 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="p-2 text-red-400 hover:bg-red-400/10 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         title="Edit product"
                       >
                         <Edit className="w-4 h-4" />

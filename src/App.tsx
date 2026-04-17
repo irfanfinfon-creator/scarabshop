@@ -5,7 +5,7 @@ import { Header } from './components/ui/Header';
 import { Footer } from './components/ui/footer';
 import { HomePage } from './components/home/HomePage';
 import { ToastProvider, ToastContainer } from './hooks/useToast';
-import { useCart } from './hooks/useCart';
+import { useCartContext } from './contexts/CartContext';
 import { CartProvider } from './contexts/CartContext';
 import { Product } from './types';
 import { LoadingScreen } from './components/ui/Loading';
@@ -112,7 +112,7 @@ function ProductPageWrapper({
   onClose: () => void;
 }) {
   const { user } = useAuth();
-  const { addToCart } = useCart();
+  const { addToCart } = useCartContext();
 
   const handleAddToCart = async (productId: string) => {
     if (!user) {

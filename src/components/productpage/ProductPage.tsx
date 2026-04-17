@@ -17,7 +17,7 @@ export function ProductPage({ product, onAddToCart, onClose }: ProductPageProps)
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
       <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-100">
         <div className="sticky top-0 bg-white border-b border-gray-100 p-4 flex items-center justify-between">
-          <h2 className="text-xl font-heading font-bold text-primary">Product Details</h2>
+          <h2 className="text-xl font-heading font-bold text-gray-950">Product Details</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -37,10 +37,10 @@ export function ProductPage({ product, onAddToCart, onClose }: ProductPageProps)
             </div>
 
             <div className="flex-1 flex flex-col gap-4">
-              <h1 className="text-3xl font-heading font-bold text-primary">{product.name}</h1>
+              <h1 className="text-3xl font-heading font-bold text-gray-950">{product.name}</h1>
               <p className="text-2xl text-accent font-heading font-semibold">RM{product.price.toFixed(2)}</p>
 
-              <div className="text-sm text-secondary font-body">
+              <div className="text-sm text-gray-500 font-body">
                 {product.stock > 0 ? (
                   <span className="text-accent">✓ {product.stock} in stock</span>
                 ) : (
@@ -48,7 +48,7 @@ export function ProductPage({ product, onAddToCart, onClose }: ProductPageProps)
                 )}
               </div>
 
-              <p className="text-secondary font-body">{product.description}</p>
+              <p className="text-gray-500 font-body">{product.description}</p>
 
               <button
                 onClick={() => {
@@ -65,13 +65,13 @@ export function ProductPage({ product, onAddToCart, onClose }: ProductPageProps)
           </div>
 
           <div className="mt-8 border-t border-gray-100 pt-8">
-            <h2 className="text-2xl font-heading font-bold mb-4 text-primary">Product Details</h2>
-            <p className="text-secondary font-body">{product.description}</p>
+            <h2 className="text-2xl font-heading font-bold mb-4 text-gray-950">Product Details</h2>
+            <p className="text-gray-500 font-body">{product.description}</p>
 
             {product.category && (
               <div className="mt-4">
-                <span className="text-sm font-medium text-secondary font-body">Category: </span>
-                <span className="text-sm text-primary font-body">{product.category.name}</span>
+                <span className="text-sm font-medium text-gray-500 font-body">Category: </span>
+                <span className="text-sm text-gray-950 font-body">{product.category.name}</span>
               </div>
             )}
           </div>

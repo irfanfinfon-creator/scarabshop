@@ -69,20 +69,20 @@ export function TestimonialsSection() {
     ];
 
     return (
-        <section className="py-20 bg-background-white">
+        <section className="py-20 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 font-body">
+                    <div className="inline-flex items-center gap-2 bg-red-400 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 font-body">
                         <Star className="w-4 h-4 fill-current" />
                         <span>Customer Reviews</span>
                     </div>
 
-                    <h2 className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
+                    <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-950 mb-4">
                         What Our Customers Say
                     </h2>
 
-                    <p className="text-lg text-secondary max-w-2xl mx-auto font-body">
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto font-body">
                         Don't just take our word for it - hear from our happy customers
                     </p>
                 </div>
@@ -97,7 +97,7 @@ export function TestimonialsSection() {
                         >
                             {/* Quote icon */}
                             <div className="absolute top-4 right-4 opacity-10">
-                                <Quote className="w-16 h-16 text-accent" />
+                                <Quote className="w-16 h-16 text-red-400" />
                             </div>
 
                             {/* Rating */}
@@ -106,7 +106,7 @@ export function TestimonialsSection() {
                                     <Star
                                         key={i}
                                         className={`w-5 h-5 ${i < testimonial.rating
-                                            ? 'text-accent fill-accent'
+                                            ? 'text-red-400 fill-red-400'
                                             : 'text-gray-300'
                                             }`}
                                     />
@@ -114,7 +114,7 @@ export function TestimonialsSection() {
                             </div>
 
                             {/* Review text */}
-                            <p className="text-secondary mb-6 leading-relaxed relative z-10 font-body">
+                            <p className="text-gray-500 mb-6 leading-relaxed relative z-10 font-body">
                                 "{testimonial.text}"
                             </p>
 
@@ -127,7 +127,7 @@ export function TestimonialsSection() {
                                         className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100"
                                     />
                                     {testimonial.verified && (
-                                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center">
+                                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-red-400 rounded-full flex items-center justify-center">
                                             <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                             </svg>
@@ -136,8 +136,8 @@ export function TestimonialsSection() {
                                 </div>
 
                                 <div>
-                                    <h4 className="font-semibold text-primary">{testimonial.name}</h4>
-                                    <p className="text-sm text-secondary">{testimonial.role}</p>
+                                    <h4 className="font-semibold text-gray-950">{testimonial.name}</h4>
+                                    <p className="text-sm text-gray-500">{testimonial.role}</p>
                                 </div>
                             </div>
                         </div>

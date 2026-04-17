@@ -40,7 +40,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
             if (error) throw error;
             setCartItems(data as CartItem[]);
         } catch (error) {
-            console.error('Fetch cart error:', error);
             addToast({
                 message: 'Failed to load cart items',
                 type: 'error',

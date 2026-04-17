@@ -70,7 +70,7 @@ export function ProductManagement() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-4 py-2 border border-accent rounded-lg focus:outline-none focus:ring-2 bg-white"
+            className="px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-2 bg-white"
           >
             <option value="">All Categories</option>
             {categories.map((category) => (
@@ -85,7 +85,7 @@ export function ProductManagement() {
               setShowAddForm(true);
               setEditingProduct(null);
             }}
-            className="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition-colors"
             disabled={loading}
           >
             <Plus className="w-4 h-4" />

@@ -1,6 +1,6 @@
 import { X, Plus, Minus, Trash2 } from 'lucide-react';
 import { CartItem } from '../../types';
-import { useCart } from '../../hooks/useCart';
+import { useCartContext } from '../../contexts/CartContext';
 import { getProductImage } from '../../utils';
 
 interface ShoppingCartProps {
@@ -17,7 +17,7 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
     itemCount,
     updateQuantity,
     removeItem,
-  } = useCart();
+  } = useCartContext();
 
   if (!isOpen) return null;
 
@@ -31,14 +31,14 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
 
   const renderEmpty = () => (
     <div className="text-center py-12">
-      <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
         <Trash2 className="w-12 h-12 text-white" />
       </div>
-      <h3 className="text-lg font-heading font-semibold text-primary mb-2">Your cart is empty</h3>
-      <p className="text-secondary mb-4 font-body">Start shopping to fill it up!</p>
+      <h3 className="text-lg font-heading font-semibold text-gray-950 mb-2">Your cart is empty</h3>
+      <p className="text-gray-500 mb-4 font-body">Start shopping to fill it up!</p>
       <button
         onClick={onClose}
-        className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent-dark transition-colors font-body"
+        className="bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-400-dark transition-colors font-body"
       >
         Continue Shopping
       </button>
@@ -57,8 +57,8 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
         />
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-heading font-semibold text-primary truncate">{item.product?.name}</h3>
-          <p className="text-secondary text-sm font-body">RM{item.product?.price?.toFixed(2)}</p>
+          <h3 className="font-heading font-semibold text-gray-950 truncate">{item.product?.name}</h3>
+          <p className="text-gray-500 text-sm font-body">RM{item.product?.price?.toFixed(2)}</p>
 
           <div className="flex items-center gap-2 mt-3">
             <button
@@ -81,7 +81,7 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
 
             <button
               onClick={() => removeItem(item.id)}
-              className="ml-auto p-1.5 hover:bg-accent/10 text-accent rounded-lg transition-colors"
+              className="ml-auto p-1.5 hover:bg-red-400/10 text-accent rounded-lg transition-colors"
               title="Remove item"
             >
               <Trash2 className="w-4 h-4" />
@@ -104,9 +104,9 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-heading font-bold text-primary">Your Cart</h2>
+            <h2 className="text-xl font-heading font-bold text-gray-950">Your Cart</h2>
             {itemCount > 0 && (
-              <span className="bg-accent text-white text-xs px-2 py-1 rounded-full font-body">
+              <span className="bg-red-400 text-white text-xs px-2 py-1 rounded-full font-body">
                 {itemCount}
               </span>
             )}
@@ -129,8 +129,8 @@ export function ShoppingCart({ isOpen, onClose, onCheckout }: ShoppingCartProps)
         {cartItems.length > 0 && (
           <div className="border-t border-gray-100 p-4 space-y-4 bg-gray-50">
             <div className="flex justify-between items-center">
-              <span className="text-secondary font-body">Subtotal</span>
-              <span className="text-lg font-heading font-bold text-primary">RM{total.toFixed(2)}</span>
+              <span className="text-gray-500 font-body">Subtotal</span>
+              <span className="text-lg font-heading font-bold text-gray-950">RM{total.toFixed(2)}</span>
             </div>
 
             <div className="flex items-center gap-2 text-xs text-accent font-body">

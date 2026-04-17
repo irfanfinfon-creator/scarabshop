@@ -25,12 +25,12 @@ export function ReviewStep({
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-heading font-semibold text-primary">Order Summary</h3>
+      <h3 className="text-lg font-heading font-semibold text-gray-950">Order Summary</h3>
 
       {/* Order Items */}
       <div className="bg-white rounded-lg border border-gray-100">
         <div className="p-6">
-          <h4 className="font-heading font-medium mb-4 text-primary">Items ({cartItems.length})</h4>
+          <h4 className="font-heading font-medium mb-4 text-gray-950">Items ({cartItems.length})</h4>
 
           <div className="space-y-4">
             {cartItems.map((item) => (
@@ -50,18 +50,18 @@ export function ReviewStep({
                 </div>
 
                 <div className="flex-1">
-                  <h5 className="font-heading font-medium text-primary">{item.product?.name}</h5>
-                  <p className="text-sm text-secondary font-body">Quantity: {item.quantity}</p>
+                  <h5 className="font-heading font-medium text-gray-950">{item.product?.name}</h5>
+                  <p className="text-sm text-gray-500 font-body">Quantity: {item.quantity}</p>
                   {item.product?.category && (
-                    <p className="text-xs text-secondary font-body">{item.product.category.name}</p>
+                    <p className="text-xs text-gray-500 font-body">{item.product.category.name}</p>
                   )}
                 </div>
 
                 <div className="text-right">
-                  <p className="font-heading font-medium text-primary">
+                  <p className="font-heading font-medium text-gray-950">
                     {formatCurrency((item.product?.price || 0) * item.quantity)}
                   </p>
-                  <p className="text-sm text-secondary font-body">
+                  <p className="text-sm text-gray-500 font-body">
                     {formatCurrency(item.product?.price || 0)} each
                   </p>
                 </div>
@@ -74,15 +74,15 @@ export function ReviewStep({
       {/* Order Totals */}
       <div className="bg-white rounded-lg border border-gray-100">
         <div className="p-6">
-          <h4 className="font-heading font-medium mb-4 text-primary">Order Details</h4>
+          <h4 className="font-heading font-medium mb-4 text-gray-950">Order Details</h4>
 
           <div className="space-y-3">
-            <div className="flex justify-between text-secondary font-body">
+            <div className="flex justify-between text-gray-500 font-body">
               <span>Subtotal</span>
               <span>{formatCurrency(subtotal)}</span>
             </div>
 
-            <div className="flex justify-between text-secondary font-body">
+            <div className="flex justify-between text-gray-500 font-body">
               <span>Shipping</span>
               <span>
                 {shipping === 0 ? 'FREE' : formatCurrency(shipping)}
@@ -95,13 +95,13 @@ export function ReviewStep({
               </p>
             )}
 
-            <div className="flex justify-between text-secondary font-body">
+            <div className="flex justify-between text-gray-500 font-body">
               <span>Tax</span>
               <span>{formatCurrency(tax)}</span>
             </div>
 
             <div className="border-t pt-3">
-              <div className="flex justify-between text-lg font-heading font-bold text-primary">
+              <div className="flex justify-between text-lg font-heading font-bold text-gray-950">
                 <span>Total</span>
                 <span>{formatCurrency(orderTotal)}</span>
               </div>
@@ -112,14 +112,14 @@ export function ReviewStep({
 
       {/* Promo Code */}
       <div className="bg-white rounded-lg border border-gray-100 p-6">
-        <h4 className="font-heading font-medium mb-4 text-primary">Promo Code</h4>
+        <h4 className="font-heading font-medium mb-4 text-gray-950">Promo Code</h4>
         <div className="flex gap-3">
           <input
             type="text"
             placeholder="Enter promo code"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent font-body"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 font-body"
           />
-          <button className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium font-body text-primary">
+          <button className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium font-body text-gray-950">
             Apply
           </button>
         </div>
@@ -131,9 +131,9 @@ export function ReviewStep({
           <input
             type="checkbox"
             id="terms"
-            className="mt-1 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+            className="mt-1 h-4 w-4 text-accent focus:ring-red-400 border-gray-300 rounded"
           />
-          <label htmlFor="terms" className="text-sm text-primary font-body">
+          <label htmlFor="terms" className="text-sm text-gray-950 font-body">
             I agree to the Terms and Conditions and Privacy Policy.
             I understand that this is a demo order and no actual charges will be made.
           </label>
@@ -145,7 +145,7 @@ export function ReviewStep({
         <button
           onClick={onBack}
           disabled={loading}
-          className="flex-1 border border-gray-300 py-3 px-4 rounded-lg hover:bg-gray-50 font-medium disabled:opacity-50 font-body text-primary"
+          className="flex-1 border border-gray-300 py-3 px-4 rounded-lg hover:bg-gray-50 font-medium disabled:opacity-50 font-body text-gray-950"
         >
           Back to Payment
         </button>
@@ -167,7 +167,7 @@ export function ReviewStep({
       </div>
 
       {/* Security Note */}
-      <div className="text-center text-sm text-secondary font-body">
+      <div className="text-center text-sm text-gray-500 font-body">
         <div className="flex items-center justify-center gap-2 mb-2">
           <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />

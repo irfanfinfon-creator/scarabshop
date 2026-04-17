@@ -38,7 +38,7 @@ export function SignUpForm({ onToggleMode, onSuccess }: SignUpFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="fullName" className="block text-sm font-medium text-primary mb-1 font-body">
+        <label htmlFor="fullName" className="block text-sm font-medium text-gray-950 mb-1 font-body">
           Full Name
         </label>
         <input
@@ -47,13 +47,13 @@ export function SignUpForm({ onToggleMode, onSuccess }: SignUpFormProps) {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent font-body"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 font-body"
           placeholder="John Doe"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-primary mb-1 font-body">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-950 mb-1 font-body">
           Email
         </label>
         <input
@@ -62,13 +62,13 @@ export function SignUpForm({ onToggleMode, onSuccess }: SignUpFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent font-body"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 font-body"
           placeholder="you@example.com"
         />
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-primary mb-1 font-body">
+        <label htmlFor="password" className="block text-sm font-medium text-gray-950 mb-1 font-body">
           Password
         </label>
         <input
@@ -77,23 +77,23 @@ export function SignUpForm({ onToggleMode, onSuccess }: SignUpFormProps) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent font-body"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 font-body"
           placeholder="••••••••"
         />
-        <p className="text-xs text-secondary mt-1 font-body">Minimum 6 characters</p>
+        <p className="text-xs text-gray-500 mt-1 font-body">Minimum 6 characters</p>
       </div>
 
-      {error && <div className="bg-accent/10 text-accent px-4 py-3 rounded-lg text-sm font-body">{error}</div>}
+      {error && <div className="bg-red-400/10 text-accent px-4 py-3 rounded-lg text-sm font-body">{error}</div>}
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-body"
+        className="w-full bg-red-400 text-white py-2 px-4 rounded-lg hover:bg-red-400-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-body"
       >
         {loading ? 'Creating account...' : 'Create Account'}
       </button>
 
-      <p className="text-center text-sm text-secondary font-body">
+      <p className="text-center text-sm text-gray-500 font-body">
         Already have an account?{' '}
         <button
           type="button"

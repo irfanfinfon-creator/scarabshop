@@ -2,7 +2,7 @@ import React, { useState, type FC } from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Instagram, X, Mail } from 'lucide-react';
+import { Facebook, Instagram, X } from 'lucide-react';
 
 /**
  * Props for the Footer component.
@@ -72,12 +72,12 @@ export const Footer: FC<FooterProps> = ({
   };
 
   return (
-    <footer className={cn('bg-primary text-white', className)} {...props}>
+    <footer className={cn('bg-gray-950 text-white', className)} {...props}>
       <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
         {/* Company Info */}
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center">
+            <div className="h-10 w-10 rounded-full bg-red-400 flex items-center justify-center">
               <span className="text-white font-bold text-lg">S</span>
             </div>
             <span className="text-xl font-heading font-bold">{companyName}</span>
@@ -93,7 +93,7 @@ export const Footer: FC<FooterProps> = ({
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-sm text-gray-300 transition-colors hover:text-accent font-body"
+                  className="text-sm text-gray-300 transition-colors hover:text-red-400 font-body"
                 >
                   {link.label}
                 </a>
@@ -111,7 +111,7 @@ export const Footer: FC<FooterProps> = ({
                 <a
                   href={link.href}
                   aria-label={link.label}
-                  className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-accent font-body"
+                  className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-red-400 font-body"
                 >
                   {link.icon}
                   <span>{link.label}</span>
@@ -134,12 +134,12 @@ export const Footer: FC<FooterProps> = ({
                 disabled={isSubmitting}
                 required
                 aria-label="Email for newsletter"
-                className="pr-28 bg-white text-gray-900 border-gray-300 focus:ring-accent"
+                className="pr-28 bg-white text-gray-900 border-gray-300 focus:ring-red-400"
               />
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="absolute right-0 top-0 h-full rounded-l-none px-4 bg-accent hover:bg-accent-dark"
+                className="absolute right-0 top-0 h-full rounded-l-none px-4 bg-red-400 hover:bg-red-500"
               >
                 {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </Button>
@@ -151,7 +151,7 @@ export const Footer: FC<FooterProps> = ({
                 className="animate-in fade-in absolute inset-0 flex items-center justify-center rounded-md bg-white/90 text-center backdrop-blur-sm"
               >
                 {subscriptionStatus === 'success' ? (
-                  <span className="font-semibold text-accent">Subscribed!</span>
+                  <span className="font-semibold text-red-400">Subscribed!</span>
                 ) : (
                   <span className="font-semibold text-red-500">Failed. Try again.</span>
                 )}

@@ -1,7 +1,7 @@
 import { Product } from '../../types';
 import { ProductCard } from './ProductCard';
 import { useProducts } from '../../hooks/useProducts';
-import { useCart } from '../../hooks/useCart';
+import { useCartContext } from '../../contexts/CartContext';
 
 import { SortOption } from '../../hooks/useProducts';
 
@@ -41,7 +41,7 @@ export function ProductGrid({
     sortOption
   });
 
-  const { addToCart } = useCart();
+  const { addToCart } = useCartContext();
 
   const handleAddToCart = async (productId: string) => {
     await addToCart(productId);
@@ -59,8 +59,8 @@ export function ProductGrid({
           </div>
         </div>
 
-        <h3 className="text-2xl font-heading font-bold text-primary mb-2">No Products Found</h3>
-        <p className="text-secondary text-center max-w-md font-body">
+        <h3 className="text-2xl font-heading font-bold text-gray-950 mb-2">No Products Found</h3>
+        <p className="text-gray-500 text-center max-w-md font-body">
           {searchQuery
             ? `We couldn't find any products matching "${searchQuery}". Try a different search term.`
             : "No products available at the moment. Check back soon for new arrivals!"
@@ -70,7 +70,7 @@ export function ProductGrid({
         {searchQuery && (
           <button
             onClick={() => window.location.reload()}
-            className="mt-6 px-6 py-3 bg-accent text-white rounded-xl font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 font-body"
+            className="mt-6 px-6 py-3 bg-red-400 text-white rounded-xl font-semibold hover:bg-red-500 transition-all duration-300 hover:scale-105 font-body"
           >
             Clear Search
           </button>
@@ -86,8 +86,8 @@ export function ProductGrid({
       {/* Product count badge */}
       <div className="mb-6 flex items-center justify-between">
         <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full">
-          <div className="w-2 h-2 bg-accent rounded-full" />
-          <span className="text-sm font-semibold text-primary font-body">
+          <div className="w-2 h-2 bg-red-400 rounded-full" />
+          <span className="text-sm font-semibold text-gray-950 font-body">
             {displayProducts.length} {displayProducts.length === 1 ? 'Product' : 'Products'} Available
           </span>
         </div>

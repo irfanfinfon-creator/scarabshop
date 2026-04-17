@@ -23,12 +23,12 @@ export function AuthModal({ isOpen, onClose, initialMode = 'login' }: AuthModalP
       <div className="bg-white rounded-xl max-w-md w-full p-6 relative border border-gray-100">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-secondary hover:text-primary"
+          className="absolute top-4 right-4 text-secondary hover:text-gray-950"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-2xl font-heading font-bold mb-6 text-primary">
+        <h2 className="text-2xl font-heading font-bold mb-6 text-gray-950">
           {mode === 'login' ? 'Welcome Back' : 'Create Account'}
         </h2>
 

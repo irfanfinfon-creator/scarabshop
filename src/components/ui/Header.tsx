@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ShoppingCart, User, Search, LogOut, Settings } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../lib/supabase';
-import { useCart } from '../../hooks/useCart';
+import { useCartContext } from '../../contexts/CartContext';
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -25,7 +25,7 @@ export function Header({
 }: HeaderProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const { user, signOut } = useAuth();
-  const { itemCount } = useCart();
+  const { itemCount } = useCartContext();
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,6 @@ export function Header({
         .maybeSingle();
 
       if (error) {
-        console.error('Error fetching admin status:', error);
         setIsAdmin(false);
         return;
       }
@@ -67,7 +66,7 @@ export function Header({
         <div className="flex items-center justify-between gap-4">
           <button
             onClick={onHomeClick}
-            className="text-2xl font-heading font-bold text-primary hover:text-accent transition-colors"
+            className="text-2xl font-heading font-bold text-gray-950 hover:text-red-400 transition-colors"
           >
             Scarabshop
           </button>
@@ -80,7 +79,7 @@ export function Header({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="What you buying today?"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent font-body"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 font-body"
               />
             </div>
           </form>
@@ -89,7 +88,7 @@ export function Header({
           <nav className="hidden md:flex items-center gap-6">
             <button
               onClick={onShopClick}
-              className="text-secondary hover:text-accent font-medium transition-colors font-body"
+              className="text-gray-500 hover:text-red-400 font-medium transition-colors font-body"
             >
               Shop
             </button>
@@ -103,7 +102,7 @@ export function Header({
             >
               <ShoppingCart className="w-6 h-6" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1 -right-1 bg-red-400 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -138,7 +137,7 @@ export function Header({
             ) : (
               <button
                 onClick={onAuthClick}
-                className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark transition-colors font-body"
+                className="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition-colors font-body"
               >
                 Sign In
               </button>

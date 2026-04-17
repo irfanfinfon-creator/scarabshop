@@ -94,7 +94,7 @@ export function ProductForm({
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   placeholder="Product Name"
                   required
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
                 />
               </div>
               <div>
@@ -107,7 +107,7 @@ export function ProductForm({
                   onChange={(e) => handleInputChange('slug', e.target.value)}
                   placeholder="Product slug"
                   required
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
                 />
               </div>
             </div>
@@ -121,7 +121,7 @@ export function ProductForm({
                 value={formData.description}
                 onChange={(e) => handleInputChange('description', e.target.value)}
                 placeholder="Product description"
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
               />
             </div>
 
@@ -137,7 +137,7 @@ export function ProductForm({
                   onChange={(e) => handleInputChange('price', e.target.value)}
                   placeholder="0.00"
                   required
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
                 />
               </div>
               <div>
@@ -150,7 +150,7 @@ export function ProductForm({
                   onChange={(e) => handleInputChange('stock', e.target.value)}
                   placeholder="0"
                   required
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
                 />
               </div>
               <div>
@@ -160,7 +160,7 @@ export function ProductForm({
                 <select
                   value={formData.category_id}
                   onChange={(e) => handleInputChange('category_id', e.target.value)}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
                 >
                   <option value="">No Category</option>
                   {categories.map((category) => (
@@ -183,7 +183,7 @@ export function ProductForm({
             value={formData.images}
             onChange={(e) => handleInputChange('images', e.target.value)}
             placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-accent"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-400"
           />
         </div>
 
@@ -204,7 +204,7 @@ export function ProductForm({
           <button
             type="submit"
             disabled={loading}
-            className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-400-dark disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Saving...' : (isEdit ? 'Update Product' : 'Create Product')}
           </button>

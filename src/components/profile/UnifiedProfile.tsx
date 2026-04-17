@@ -150,9 +150,9 @@ export function UnifiedProfile() {
       case 'pending':
         return <Package className="w-5 h-5 text-yellow-600" />;
       case 'processing':
-        return <Package className="w-5 h-5 text-accent" />;
+        return <Package className="w-5 h-5 text-red-400" />;
       case 'shipped':
-        return <Truck className="w-5 h-5 text-accent" />;
+        return <Truck className="w-5 h-5 text-red-400" />;
       case 'delivered':
         return <CheckCircle className="w-5 h-5 text-green-600" />;
       case 'cancelled':
@@ -167,9 +167,9 @@ export function UnifiedProfile() {
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'processing':
-        return 'bg-accent text-accent';
+        return 'bg-red-400 text-red-400';
       case 'shipped':
-        return 'bg-accent text-accent';
+        return 'bg-red-400 text-red-400';
       case 'delivered':
         return 'bg-green-100 text-green-800';
       case 'cancelled':
@@ -201,7 +201,7 @@ export function UnifiedProfile() {
                   type="email"
                   value={profileFormData.email}
                   onChange={(e) => setProfileFormData(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 />
               </div>
 
@@ -213,7 +213,7 @@ export function UnifiedProfile() {
                   type="text"
                   value={profileFormData.full_name}
                   onChange={(e) => setProfileFormData(prev => ({ ...prev, full_name: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 />
               </div>
 
@@ -225,14 +225,14 @@ export function UnifiedProfile() {
                   type="tel"
                   value={profileFormData.phone}
                   onChange={(e) => setProfileFormData(prev => ({ ...prev, phone: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 />
               </div>
 
               <div className="flex gap-3">
                 <button
                   onClick={handleSaveProfile}
-                  className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-500 transition-colors"
                 >
                   Save Changes
                 </button>
@@ -254,7 +254,7 @@ export function UnifiedProfile() {
               </h3>
               <button
                 onClick={handleEditProfile}
-                className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition-colors"
               >
                 Edit Profile
               </button>
@@ -298,7 +298,7 @@ export function UnifiedProfile() {
                   type="text"
                   value={addressFormData.address_line1}
                   onChange={(e) => setAddressFormData(prev => ({ ...prev, address_line1: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                   required
                 />
               </div>
@@ -311,7 +311,7 @@ export function UnifiedProfile() {
                   type="text"
                   value={addressFormData.address_line2}
                   onChange={(e) => setAddressFormData(prev => ({ ...prev, address_line2: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 />
               </div>
 
@@ -324,7 +324,7 @@ export function UnifiedProfile() {
                     type="text"
                     value={addressFormData.city}
                     onChange={(e) => setAddressFormData(prev => ({ ...prev, city: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     required
                   />
                 </div>
@@ -337,7 +337,7 @@ export function UnifiedProfile() {
                     type="text"
                     value={addressFormData.state}
                     onChange={(e) => setAddressFormData(prev => ({ ...prev, state: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     required
                   />
                 </div>
@@ -352,7 +352,7 @@ export function UnifiedProfile() {
                     type="text"
                     value={addressFormData.postal_code}
                     onChange={(e) => setAddressFormData(prev => ({ ...prev, postal_code: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     required
                   />
                 </div>
@@ -365,7 +365,7 @@ export function UnifiedProfile() {
                     type="text"
                     value={addressFormData.country}
                     onChange={(e) => setAddressFormData(prev => ({ ...prev, country: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     required
                   />
                 </div>
@@ -387,7 +387,7 @@ export function UnifiedProfile() {
               <div className="flex gap-3">
                 <button
                   onClick={handleSaveAddress}
-                  className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-500 transition-colors"
                 >
                   {editingAddress ? 'Update Address' : 'Add Address'}
                 </button>
@@ -409,7 +409,7 @@ export function UnifiedProfile() {
               </h3>
               <button
                 onClick={handleAddAddress}
-                className="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center gap-2 bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 Add Address
@@ -431,7 +431,7 @@ export function UnifiedProfile() {
                         <div className="flex items-center gap-2 mb-2">
                           <p className="font-medium text-gray-900">{address.address_line1}</p>
                           {address.is_default && (
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-accent">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-400 text-red-400">
                               Default
                             </span>
                           )}
@@ -451,7 +451,7 @@ export function UnifiedProfile() {
                       <div className="flex items-center gap-2 ml-4">
                         <button
                           onClick={() => handleEditAddress(address)}
-                          className="p-2 text-accent hover:bg-accent/10 rounded-lg transition-colors"
+                          className="p-2 text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
                           title="Edit address"
                         >
                           <Edit className="w-4 h-4" />
@@ -524,8 +524,8 @@ export function UnifiedProfile() {
                 </div>
 
                 {order.tracking_number && (
-                  <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-                    <p className="text-sm font-medium text-blue-900">Tracking: {order.tracking_number}</p>
+                  <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+                    <p className="text-sm font-medium text-gray-800">Tracking: {order.tracking_number}</p>
                   </div>
                 )}
 
